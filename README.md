@@ -14,7 +14,7 @@ In this task, various pre-processing techniques are implemented (such as normali
 With the help of *opencv*, a noise removal process is applied. A threshold of 240 is chosen such that all the pixels with a value above the threshold is set to be 255. The method helps the model to better recognize the useful information in the images.
 
 *Original image* | *Image with noise removal*
-- | - 
+---|---
 ![](./image/test1.png) | ![](./image/test1_binary.png)
 
 ### Image resizing (IR)
@@ -26,7 +26,7 @@ The image resizing could lead to a finer description of the object on the image 
 In order to provide a higher quality input for the CNN model, we tried to subtract the digit with the largest bounding box. The noise-removed image shows clearer digit boundary, thus is easier for the detector to find the contours. Two techniques are tried: the **rectangle bounding box (RBB)** with resizing and the **square bounding box (SBB)** with fixed box size, whose effects.
 
 *Before bounding* | *rectangle bounding - resizing* | *square bounding - fixed size*
-- | - | -
+---|---|---
 ![](./image/test1_binary.png) | ![](./image/test1_box_real.png) | ![](./image/test1_box.png)
 
 Since that the definition of *the digits occupies the largest bounding box* is hard to precisely define. On the one hand, the definition of the edge affects the area of the bounding box, on the other hand, the rectangle and square bounding box identify different areas and digits on the same figure. Here is an example for the ambiguity (the area occupied by 0 and 1 is ambiguous depending on whether a rectangle or square bounding box is used).
